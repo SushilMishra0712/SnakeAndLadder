@@ -1,11 +1,11 @@
 <?php
 
 define('STARTPOSITION',0);
+define('WINPOSITION',100);
 $start_position = STARTPOSITION;
-echo "Press Enter to roll the die";
-fscanf(STDIN,"%s");
+while($start_position != WINPOSITION)
+{
 $random = rand(1,6);
-echo "You got number ".$random."\n";
 $checks = rand(0,2);
 switch($checks)
 {
@@ -25,9 +25,13 @@ switch($checks)
 	case 2:
 	echo "Snake received\n";
 	$start_position-=$random;
+	if($start_position<0)
+	{
+	$start_position = STARTPOSITION;
+	}
 	break;
 
 }
 echo "You are at position:".$start_position."\n";
-
+}
 ?>
