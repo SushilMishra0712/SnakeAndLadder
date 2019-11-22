@@ -18,8 +18,12 @@ switch($checks)
 	//Case Ladder
 	case 1:
 	echo "Ladder received\n";
-	$start_position+=$random;
-	break;
+	$start_position += $random;
+	if($start_position>100)
+	{
+	   $start_position -= $random; 
+	}
+	break; 
 
 	//Case Snake
 	case 2:
@@ -27,7 +31,7 @@ switch($checks)
 	$start_position-=$random;
 	if($start_position<0)
 	{
-	$start_position = STARTPOSITION;
+	   $start_position = STARTPOSITION;
 	}
 	break;
 
