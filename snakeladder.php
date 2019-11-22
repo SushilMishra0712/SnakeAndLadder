@@ -3,9 +3,14 @@
 define('STARTPOSITION',0);
 define('WINPOSITION',100);
 $start_position = STARTPOSITION;
+$dice_roll_count = 0;
 while($start_position != WINPOSITION)
 {
+//random function to roll the dice
 $random = rand(1,6);
+$dice_roll_count++;
+
+//random function to check options No play,ladder or snake
 $checks = rand(0,2);
 switch($checks)
 {
@@ -13,6 +18,7 @@ switch($checks)
 	case 0:
 	echo "No play\n";
 	$start_position+=0;
+	echo "No of time dice rolled:".$dice_roll_count."\n";
 	break;
 
 	//Case Ladder
@@ -23,6 +29,7 @@ switch($checks)
 	{
 	   $start_position -= $random; 
 	}
+	echo "No of time dice rolled:".$dice_roll_count."\n";
 	break; 
 
 	//Case Snake
@@ -33,6 +40,7 @@ switch($checks)
 	{
 	   $start_position = STARTPOSITION;
 	}
+	echo "No of time dice rolled:".$dice_roll_count."\n";
 	break;
 
 }
